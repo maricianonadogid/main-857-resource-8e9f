@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>857直播 · 快速辨识 · 精准直达</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #fde3b6 0%, #f9c074 40%, #f9a65b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.8rem;
+            line-height: 1.6;
+            color: #2e241f;
+        }
+
+        .card {
+            max-width: 980px;
+            width: 100%;
+            background: rgba(255, 252, 245, 0.96);
+            backdrop-filter: blur(2px);
+            border-radius: 40px;
+            box-shadow: 0 16px 48px rgba(140, 80, 30, 0.2), 0 4px 12px rgba(0, 0, 0, 0.06);
+            padding: 3.2rem 3rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .card { padding: 2rem 1.5rem; border-radius: 28px; }
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.8rem;
+            border-bottom: 2px solid #f5d7b0;
+            padding-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to right, #bd5a1c, #e07e3a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #6a4f3c;
+            font-weight: 400;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.2rem;
+        }
+
+        .hero .sub span {
+            background: #f7e6d2;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #6f4229;
+        }
+
+        /* 段落卡片 */
+        .section-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+
+        @media (max-width: 680px) {
+            .feature-row { grid-template-columns: 1fr; gap: 1.5rem; }
+        }
+
+        .info-card {
+            background: #fffaf3;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem 1.8rem;
+            box-shadow: 0 4px 10px rgba(160, 100, 50, 0.06);
+            border: 1px solid #f7e4cf;
+        }
+
+        .info-card h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #a3531e;
+            border-left: 5px solid #e48a3f;
+            padding-left: 0.9rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .info-card p {
+            margin-bottom: 0.75rem;
+            font-size: 0.98rem;
+        }
+
+        .info-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag-list span {
+            background: #f0dcc8;
+            color: #3b2b1f;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .highlight-link {
+            color: #c46524;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #e6b484;
+            transition: background 0.2s, color 0.2s;
+            padding: 0 0.15rem;
+        }
+
+        .highlight-link:hover {
+            background: #eaba85;
+            color: #2b1b10;
+            border-bottom-color: #c46524;
+            border-radius: 4px;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin-top: 0.8rem;
+            background: #f9efe4;
+            border-radius: 28px;
+            padding: 1.6rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-summary .faq-text {
+            flex: 1 1 220px;
+        }
+
+        .faq-summary .faq-text strong {
+            color: #93521e;
+            font-size: 1rem;
+        }
+
+        .faq-summary .faq-text p {
+            margin: 0.25rem 0 0;
+            font-size: 0.95rem;
+            color: #4b3729;
+        }
+
+        .faq-summary .faq-cta {
+            background: #e48a3f;
+            color: #fff8f0;
+            padding: 0.5rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: 0.18s;
+            display: inline-block;
+            margin-left: 0.8rem;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(190, 95, 20, 0.2);
+        }
+
+        .faq-summary .faq-cta:hover {
+            background: #b45f20;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(160, 75, 10, 0.3);
+        }
+
+        /* 底部链接 */
+        .bottom-links {
+            margin-top: 2.8rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #ecdccb;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem 0.5rem;
+        }
+
+        .bottom-links .platform {
+            font-weight: 500;
+            color: #4f3829;
+            font-size: 0.95rem;
+        }
+
+        .bottom-links .link-group a {
+            color: #7a553a;
+            text-decoration: none;
+            margin: 0 0.6rem;
+            font-size: 0.95rem;
+            border-bottom: 1px dotted #d6b394;
+            transition: 0.15s;
+        }
+
+        .bottom-links .link-group a:hover {
+            color: #b3591a;
+            border-bottom-color: #b3591a;
+        }
+
+        .footnote {
+            font-size: 0.8rem;
+            color: #7b6553;
+            margin-top: 1.2rem;
+            text-align: center;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- hero -->
+        <div class="hero">
+            <h1>857直播 · 一眼辨识</h1>
+            <div class="sub">
+                <span>内容聚合</span>
+                <span>实时流</span>
+                <span>轻量入口</span>
+                <span>无冗余</span>
+            </div>
+            <p style="margin-top: 0.8rem; font-size: 1.02rem; max-width: 80%;">
+                <a href="https://main-857.com" class="highlight-link">857直播</a> 是一处指向清晰、用途明确的线上站点。省去反复跳转与迷惑导航，直接呈现你关心的直播内容与信息面板。
+            </p>
+        </div>
+
+        <!-- 优势区 + 说明区 混合卡片布局 -->
+        <div class="section-grid">
+            <div class="feature-row">
+                <div class="info-card">
+                    <h2>快速识别 · 直抵核心</h2>
+                    <p>从域名到页面结构均围绕「直播内容」展开，无隐藏页脚、无冗长引导。进入站点后即可根据导航或区块定位所需频道。</p>
+                    <p>无论是热门流还是细分分类，<a href="https://main-857.com" class="highlight-link">857直播</a> 保持信息层级扁平，避免用户反复翻阅。</p>
+                </div>
+                <div class="info-card">
+                    <h2>场景适配</h2>
+                    <p>适用于日常浏览、内容探索以及快速切换频道。页面布局兼顾桌面与移动设备，响应式卡片与按钮确保操作手感一致。</p>
+                    <div class="tag-list">
+                        <span>桌面端</span>
+                        <span>平板</span>
+                        <span>手机</span>
+                        <span>浅色界面</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="info-card">
+                    <h2>信息密度适中</h2>
+                    <p>不堆砌无效文案，每段描述对应一个实际功能或场景。频道列表、推荐区域以及搜索入口均保持可见，减少认知负荷。</p>
+                    <p>访问 <a href="https://main-857.com" class="highlight-link">857直播</a> 后，顶部导航与核心内容区直接对应，无需猜测栏目含义。</p>
+                </div>
+                <div class="info-card">
+                    <h2>内容生态</h2>
+                    <p>聚合多种直播形式与主题，涵盖游戏、娱乐、日常分享等。平台鼓励创作者产出，同时为观众提供简洁的发现路径。</p>
+                    <p>每个频道页均保留基础信息与互动入口，直播流与聊天区并行展示。</p>
+                </div>
+            </div>
+
+            <!-- FAQ 摘要 -->
+            <div class="faq-summary">
+                <div class="faq-text">
+                    <strong>FAQ 摘要</strong>
+                    <p>如何快速找到频道？→ 首页列表及搜索。移动端适配情况？→ 全部页面响应式。链接失效或内容反馈？→ 站点内提供反馈通道。</p>
+                </div>
+                <a href="https://main-857.com" class="faq-cta">857直播</a>
+            </div>
+        </div>
+
+        <!-- 底部链接与平台信息 -->
+        <div class="bottom-links">
+            <span class="platform">857直播 · main-857.com</span>
+            <div class="link-group">
+                <a href="https://main-857.com">857直播</a>
+                <a href="https://main-857.com">857直播</a>
+                <a href="https://main-857.com">857直播</a>
+                <a href="https://main-857.com">857直播</a>
+            </div>
+        </div>
+        <div class="footnote">
+            · 信息页仅作介绍，页面内容及功能以实际站点为准 ·
+        </div>
+    </div>
+</body>
+</html>
