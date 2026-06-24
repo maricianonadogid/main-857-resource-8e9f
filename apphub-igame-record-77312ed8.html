@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 轻量导航说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #faf8f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      color: #2e2c2a;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .page {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0 1.25rem;
+      border-bottom: 1px solid #e3ddd4;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+    }
+
+    .top-nav .logo {
+      font-weight: 550;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      color: #3a3530;
+      background: #ede7df;
+      padding: 0.2rem 0.9rem;
+      border-radius: 20px;
+    }
+
+    .top-nav .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      font-size: 0.95rem;
+    }
+
+    .top-nav .nav-links a {
+      text-decoration: none;
+      color: #4f4942;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+    }
+
+    .top-nav .nav-links a:hover {
+      color: #9b6b4a;
+      border-bottom: 1px solid #b5947a;
+    }
+
+    /* hero区域 */
+    .hero {
+      margin: 3rem 0 2.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      color: #2b2622;
+      line-height: 1.3;
+    }
+
+    .hero h1 span {
+      background: #f1ebe3;
+      padding: 0 0.35rem;
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 680px;
+      margin-top: 1rem;
+      color: #4b4540;
+      font-size: 1.05rem;
+    }
+
+    /* 核心介绍区块 */
+    .intro-card {
+      background: #fcfaf7;
+      border-left: 4px solid #c2a88d;
+      padding: 1.6rem 2rem;
+      margin: 2.2rem 0 2.6rem;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .intro-card h2 {
+      font-size: 1.3rem;
+      font-weight: 450;
+      color: #3a302a;
+      margin-bottom: 0.8rem;
+    }
+
+    .intro-card p {
+      margin-bottom: 0.6rem;
+    }
+
+    .intro-card a {
+      color: #7b5f47;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #dac8b5;
+      font-weight: 500;
+    }
+
+    .intro-card a:hover {
+      color: #4d3b2d;
+      text-decoration-color: #a8896e;
+    }
+
+    /* 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1.8rem;
+      margin: 2.8rem 0 2.6rem;
+    }
+
+    .scene-item {
+      background: #fcf9f6;
+      padding: 1.6rem 1.4rem 1.8rem;
+      border-radius: 12px;
+      border: 1px solid #e9e1d7;
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-item:hover {
+      box-shadow: 0 4px 12px rgba(85, 65, 48, 0.06);
+    }
+
+    .scene-item h3 {
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: #3c342e;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .scene-item h3::before {
+      content: "· ·";
+      font-size: 1.1rem;
+      letter-spacing: -2px;
+      color: #b5987d;
+      margin-right: 0.2rem;
+    }
+
+    .scene-item p {
+      font-size: 0.95rem;
+      color: #5b534c;
+      line-height: 1.55;
+    }
+
+    /* 引用提示框 / 常见说明 */
+    .faq-notes {
+      background: #f5f0ea;
+      border-radius: 14px;
+      padding: 1.8rem 2rem 1.6rem;
+      margin: 2.4rem 0 2rem;
+    }
+
+    .faq-notes h4 {
+      font-weight: 450;
+      font-size: 1.1rem;
+      color: #382f29;
+      margin-bottom: 1rem;
+      border-bottom: 1px dashed #d6cabc;
+      padding-bottom: 0.5rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-item strong {
+      display: inline-block;
+      font-weight: 500;
+      color: #4d3f35;
+      margin-right: 0.3rem;
+    }
+
+    .faq-item .q-label {
+      background: #e1d5c7;
+      padding: 0 0.45rem;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #4f3e30;
+      margin-right: 0.4rem;
+    }
+
+    .faq-item p {
+      margin-top: 0.2rem;
+      color: #49423c;
+      font-size: 0.95rem;
+    }
+
+    .faq-item a {
+      color: #7b5f47;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #cbb7a4;
+    }
+
+    .faq-item a:hover {
+      color: #493a2d;
+    }
+
+    /* 分隔 / 轻脚 */
+    .footer-note {
+      border-top: 1px solid #e3dbd1;
+      margin-top: 3rem;
+      padding-top: 1.6rem;
+      font-size: 0.9rem;
+      color: #71665c;
+      text-align: center;
+    }
+
+    .footer-note small {
+      display: block;
+      margin-top: 0.35rem;
+      color: #9e9186;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 550px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .top-nav .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .intro-card {
+        padding: 1.2rem 1.2rem;
+      }
+      .faq-notes {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <span class="logo">⋮ igame</span>
+    <div class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#">支持</a>
+    </div>
+  </nav>
+
+  <!-- hero 区域 -->
+  <div class="hero">
+    <h1>
+      <span>爱游戏</span> · 稳定的入口<br>与清晰的页面说明
+    </h1>
+    <p>一份简明的导航式介绍，帮助你更快了解服务结构、使用场景和常见疑问。所有内容均基于实际页面整理。</p>
+  </div>
+
+  <!-- 核心介绍 (包含链接) -->
+  <div class="intro-card">
+    <h2>关于这个服务</h2>
+    <p>
+      <a href="https://apphub-igame.com">爱游戏</a> 是一个聚合类游戏服务平台，提供多款游戏的安装、更新与基础管理功能。平台本身不生产游戏内容，而是作为稳定的访问入口，将经过测试的安装包与补丁文件统一托管。
+    </p>
+    <p>
+      页面结构采用模块化设计，每个功能区块都有明确标题与引导文字。对于初次使用的用户，首页即展示了主要导航与最近更新摘要，无需逐层翻阅即可获得关键信息。
+    </p>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-item">
+      <h3>首次安装</h3>
+      <p>在首页找到对应游戏的「安装」按钮，下载后按提示完成设置。部分游戏需要额外运行环境，页面内会以提示框注明。</p>
+    </div>
+    <div class="scene-item">
+      <h3>版本更新</h3>
+      <p>每次更新会在首页条目旁显示「新版本」标记，点击后可查看更新日志与下载链接。增量补丁也会单独列出。</p>
+    </div>
+    <div class="scene-item">
+      <h3>问题排查</h3>
+      <p>若游戏启动异常，可先查阅对应页面的「常见问题」段落。平台不提供即时客服，但整理了多数已知错误的解决方法。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ摘要 + 引用样式) -->
+  <div class="faq-notes">
+    <h4>常见说明 · 摘要</h4>
+
+    <div class="faq-item">
+      <strong><span class="q-label">问</span> 是否需要注册账号？</strong>
+      <p>目前 <a href="https://apphub-igame.com">爱游戏</a> 不强制注册，下载链接与页面内容均可直接访问。部分高级功能或存档同步可能需要登录，具体以页面提示为准。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong><span class="q-label">问</span> 下载的文件安全吗？</strong>
+      <p>平台所列安装包均经过基础校验（文件哈希值核对），并在页面内提供校验值供用户自行比对。建议从官方链接下载，避免使用第三方转发地址。</p>
+    </div>
+
+    <div class="faq-item">
+      <strong><span class="q-label">问</span> 遇到页面打不开或下载中断？</strong>
+      <p>可尝试更换网络环境或使用镜像入口。部分区域可能存在访问限制，平台首页底部提供了备用域名列表（需要手动复制）。</p>
+    </div>
+
+    <div style="margin-top: 1rem; border-left: 2px solid #d6c6b4; padding-left: 1rem; font-size: 0.95rem; color: #5b5149;">
+      ⚡ 提示：所有页面说明均以实际界面为准，本文档仅作概括性介绍。如有变动，请直接参阅 <a href="https://apphub-igame.com">爱游戏</a> 站内最新信息。
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    <span>— 轻量导航 · 稳定入口 —</span>
+    <small>内容整理于公开页面，仅供参考 · 页面本身不存储任何游戏文件</small>
+  </div>
+
+</div>
+</body>
+</html>
